@@ -10,3 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - uses: actions/checkout@v2
+       - name: "Download minikube"
+         run: |
+           curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+           sudo install minikube-linux-amd64 /usr/local/bin/minikube
+       - name: "Install podman"
+         run: |
+            sudo apt install podman -y
+       
