@@ -20,3 +20,4 @@ jobs:
        - name: "Starting minikube"
          run: |
             minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd
+            whoami
