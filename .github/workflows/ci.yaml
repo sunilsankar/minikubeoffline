@@ -1,0 +1,12 @@
+---
+name: Build & Release
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: almalinux/8
+    steps:
+       - uses: actions/checkout@v2
