@@ -17,4 +17,6 @@ jobs:
        - name: "Install podman"
          run: |
             sudo apt install podman -y
-       
+       - name: "Starting minikube"
+         run: |
+            minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd
