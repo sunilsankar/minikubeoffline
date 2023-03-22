@@ -22,6 +22,6 @@ jobs:
             minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd
             whoami
             ls -al /home/runner/
-      #  - name: "tar the cache directory"
-      #    run: |
-      #       tar -zcvf minikuber.tgz ${{ github.workspace }}/.minikube/cache
+       - name: "tar the cache directory"
+         run: |
+            tar -zcvf minikuber.tgz /home/runner/.minikube/cache
