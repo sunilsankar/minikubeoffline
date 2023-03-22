@@ -23,4 +23,4 @@ jobs:
             whoami
        - name: "tar the cache directory"
          run: |
-            tar -zcvf minikuber.tgz '~/.minikube/cache'
+            tar -zcvf minikuber.tgz ${{ github.workspace }}/.minikube/cache
