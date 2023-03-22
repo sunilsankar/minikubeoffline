@@ -24,4 +24,7 @@ jobs:
             ls -al /home/runner/
        - name: "tar the cache directory"
          run: |
-            tar -zcvf minikuber.tgz /home/runner/.minikube/cache
+            tar -zcvf minikube.tgz /home/runner/.minikube/cache
+            ls -l minikube.tgz
+            pwd 
+            ls -l ${{ github.workspace }}
