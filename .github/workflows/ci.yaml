@@ -28,3 +28,7 @@ jobs:
             ls -l minikube.tgz
             pwd 
             ls -l ${{ github.workspace }}
+       - uses: actions/upload-artifact@v3
+         with:
+            name: minikube
+            path: "${{ github.workspace }}/minikube.tgz"
