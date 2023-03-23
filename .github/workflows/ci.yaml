@@ -24,6 +24,7 @@ jobs:
             minikube delete
             minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd --download-only=true
             whoami
+            podman images
             ls -al /home/runner/.minikube/cache/*
        - name: "tar the cache directory"
          run: |
