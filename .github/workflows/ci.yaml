@@ -20,6 +20,8 @@ jobs:
        - name: "Starting minikube"
          run: |
             minikube delete
+            minikube start
+            minikube delete
             minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd --download-only=true
             whoami
             ls -al /home/runner/.minikube/cache/*
