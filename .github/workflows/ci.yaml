@@ -20,11 +20,9 @@ jobs:
        - name: "Starting minikube"
          run: |
             minikube delete
-            minikube start --driver=podman --download-only
-            minikube delete
-            minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd
+            minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd --download-only
             whoami
-            ls -al /home/runner/
+            ls -al /home/runner/.minikube/cache/*
        - name: "tar the cache directory"
          run: |
             tar -zcvf minikube.tgz /home/runner/.minikube/cache
