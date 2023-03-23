@@ -19,10 +19,16 @@ jobs:
             sudo apt install podman -y
        - name: "Starting minikube"
          run: |
-            minikube delete
-            minikube start
-            minikube delete
-            minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd --download-only=true
+            minikube start --driver=podman --container-runtime=containerd --extra-config=kubelet.cgroup-driver=systemd 
+            minikube cache add gcr.io/k8s-minikube/storage-provisioner:v5
+            minikube cache add registry.k8s.io/coredns/coredns:v1.9.3
+            minikube cache add registry.k8s.io/pause:3.9
+            minikube cache add registry.k8s.io/kube-proxy:v1.26.1
+            minikube cache add registry.k8s.io/kube-controller-manager:v1.26.1
+            minikube cache add registry.k8s.io/kube-apiserver:v1.26.1
+            minikube cache add registry.k8s.io/etcd:3.5.6-0
+            minikube cache add registry.k8s.io/kube-scheduler:v1.26.1
+
             whoami
             podman images
             ls -al /home/runner/.minikube/cache/*
